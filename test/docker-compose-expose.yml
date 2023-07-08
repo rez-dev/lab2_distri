@@ -66,10 +66,10 @@ services:
     volumes:
         - ./apps:/opt/spark-apps
         - ./data:/opt/spark-data
-  demo-database:
-    image: postgres:11.7-alpine
+  mongo:
+    image: mongo
+    restart: always
     ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=securepassword
-   
+      - 27017:27017
+    volumes:
+      - ./data/db:/data/db
