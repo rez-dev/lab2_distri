@@ -13,13 +13,9 @@ consumer = KafkaConsumer(
 
 # Connect to MongoDB
 client = MongoClient("mongodb://localhost:27017")
-db = client["mydatabase"]  # Select the database
-collection = db["mycollection"]  # Select the collection
+db = client["SSD-NEOS"]
+collection = db["API.Sentry"]
 
 for event in consumer:
     event_data = event.value
-    # Process and save the data to MongoDB
     collection.insert_one(event_data)
-
-    # Do whatever you want
-    print(event_data)
