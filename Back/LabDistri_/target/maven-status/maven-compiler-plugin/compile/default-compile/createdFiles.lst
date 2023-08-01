@@ -1,0 +1,5 @@
+Grupo13\LabDistri_\Config\CorsConfig.class
+Grupo13\LabDistri_\LabDistriApplication.class
+Grupo13\LabDistri_\Model\Response.class
+Grupo13\LabDistri_\Repository\ResponseRepo.class
+Grupo13\LabDistri_\Controller\ResponseController.class
