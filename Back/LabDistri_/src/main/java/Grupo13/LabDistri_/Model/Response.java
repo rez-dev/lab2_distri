@@ -19,9 +19,6 @@ public class Response
 
 	// Attributes
 	@Id private String _id;
-	private String bookName;
-	private String authorName;
-
     private float ps_max;
     private float h;
     private float diameter;

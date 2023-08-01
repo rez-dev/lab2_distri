@@ -1,24 +1,26 @@
-import {useEffect, useState} from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import DataModelTable from './DataModelTable';
 
 const RestExample = () => {
-  const url = 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/metadata';
-  const [countries, setCountries] = useState([]);
+  const [responses, setResponses] = useState([]);
 
   useEffect(() => {
-    axios.get(url).then(res => {
-      setCountries(res.data.countries);
-    })
-  }, [])
+  axios.get('http://localhost:8989/api/responses')
+      .then((response) => {
+        setResponses(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching responses:', error);
+      });
+  }, []);
 
-  return <div className="App">
-    <h1>List of Countries</h1>
+  return (
     <div>
-      <ul>
-        {countries.map(c => <li key={c}>{c}</li>)}
-      </ul>
+      <h1>Datos recuperados de la API SENTRY</h1>
+      <DataModelTable data={responses} />
     </div>
-  </div>
+  );
 };
 
 export default RestExample;

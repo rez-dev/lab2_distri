@@ -9,7 +9,8 @@ import java.util.List;
  
 // Annotation
 @RestController
- 
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 // Class
 public class ResponseController {
  
@@ -23,7 +24,7 @@ public class ResponseController {
         return "Added Successfully";
     }
  
-    @GetMapping("/findAllResponses")
+    @GetMapping("/responses")
     public List<Response> getResponses() {
        
         return responseRepo.findAll();
